@@ -1,6 +1,8 @@
 language: python
+
+# The docker image will have 3.7, so this is fine
 python:
-  - "3.6"
+  - '3.6'
 
 services:
   - docker
@@ -8,4 +10,4 @@ services:
 before_script: pip install docker-compose
 
 script:
-  - docker-compose run app sh -c "python manage.py test && flake8"
+  - docker-compose run app sh -c "flake8 && python manage.py test"
